@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MONU AI Assistant</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:#07111f;
+  color:white;
+  font-family:Arial,sans-serif;
+}
+
+header{
+  text-align:center;
+  padding:25px;
+  background:#101f35;
+}
+
+header h1{
+  color:#39c6ff;
+  font-size:32px;
+}
+
+header p{color:#b5c7dc}
+
+.container{
+  max-width:600px;
+  margin:25px auto;
+  padding:15px;
+}
+
+#chat{
+  height:380px;
+  overflow-y:auto;
+  background:#101f35;
+  padding:15px;
+  border-radius:15px;
+}
+
+.message{
+  padding:12px;
+  margin:10px 0;
+  border-radius:12px;
+  line-height:1.5;
+}
+
+.bot{background:#193b59}
+.user{background:#075b70;text-align:right}
+
+input{
+  width:100%;
+  padding:15px;
+  border-radius:10px;
+  border:0;
+  margin-top:15px;
+  font-size:16px;
+}
+
+button{
+  padding:14px;
+  border:0;
+  border-radius:10px;
+  background:#09a9e9;
+  color:white;
+  font-size:16px;
+  margin:8px 3px;
+}
+
+.buttons{text-align:center}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🤖 MONU AI</h1>
+<p>Your Personal AI Assistant</p>
+</header>
+
+<div class="container">
+
+<div id="chat">
+<div class="message bot">
+नमस्ते! 🙏 मैं MONU AI हूँ।<br>
+बताइए, मैं आपकी क्या मदद कर सकता हूँ?
+</div>
+</div>
+
+<input id="input" placeholder="यहाँ अपना सवाल लिखें...">
+
+<div class="buttons">
+<button onclick="sendMessage()">Send ➤</button>
+<button onclick="startVoice()">🎤 बोलें</button>
+<button onclick="speakLast()">🔊 सुनें</button>
+</div>
+
+</div>
+
+<script>
+
+let lastReply = "";
+
+function addMessage(text,type){
+  let div=document.createElement("div");
+  div.className="message "+type;
+  div.innerText=text;
+  document.getElementById("chat").appendChild(div);
+  document.getElementById("chat").scrollTop=
+  document.getElementById("chat").scrollHeight;
+}
+
+function getReply(q){
+  q=q.toLowerCase();
+
+  if(q.includes
